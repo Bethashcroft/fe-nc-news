@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import AllArticles from "./components/AllArticles";
 import SingleArticle from "./components/SingleArticle.jsx";
+// import Comments from "./components/Comments";
 
 function App() {
   return (
@@ -11,11 +12,9 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/news" element={<AllArticles />} />
-          <Route
-            path="/news/articles/:article_id"
-            element={<SingleArticle />}
-          />
+          <Route path="/" element={<AllArticles />} />
+          <Route path="/articles/:article_id" element={<SingleArticle />} />
+          {/* <Route path="/articles/:article_id/comments" element={<Comments />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
