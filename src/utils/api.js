@@ -21,3 +21,10 @@ export const getArticleById = (id) => {
     return res.data.article;
   });
 };
+
+export const getCommentsById = (id) => {
+  return newsApi.get(`/articles/${id}/comments`).then((res) => {
+    console.log(res.data, "we are in the api");
+    return res.data.comments;
+  });
+};

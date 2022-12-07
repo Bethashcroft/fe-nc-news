@@ -1,4 +1,5 @@
 import React from "react";
+import Comments from "./Comments";
 
 const SingleArticleCard = ({ article }) => {
   return (
@@ -8,6 +9,7 @@ const SingleArticleCard = ({ article }) => {
       <h4>Written by {article.author}</h4>
       <h4>Votes: {article.votes}</h4>
       <p>{article.body}</p>
+      <Comments article_id={article.article_id} />
     </ul>
   );
 };
