@@ -24,7 +24,40 @@ export const getArticleById = (id) => {
 
 export const getCommentsById = (id) => {
   return newsApi.get(`/articles/${id}/comments`).then((res) => {
-    console.log(res.data, "we are in the api");
     return res.data.comments;
   });
+};
+
+export const changeVotesByInc = (id) => {
+  return newsApi
+    .patch(`/articles/${id}`, {
+      inc_votes: 1,
+    })
+    .then((res) => {
+      return res.data.article;
+    });
+};
+
+export const changeVotesByDec = (id) => {
+  return newsApi
+    .patch(`/articles/${id}`, {
+      inc_votes: -1,
+    })
+    .then((res) => {
+      return res.data.article;
+    });
+};
+
+export const getUsers = () => {
+  return newsApi.get("/articles/users").then((res) => {
+    return res.data.users;
+  });
+};
+
+export const postAComment = (article_id, comment) => {
+  return newsApi
+    .post(`/articles/${article_id}/comments`, comment)
+    .then((res) => {
+      return res.data.article;
+    });
 };

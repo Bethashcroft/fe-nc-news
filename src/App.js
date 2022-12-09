@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import AllArticles from "./components/AllArticles";
 import SingleArticle from "./components/SingleArticle.jsx";
-// import Comments from "./components/Comments";
+import PostAComment from "./components/CommentPosted";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AllArticles />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
-          {/* <Route path="/articles/:article_id/comments" element={<Comments />} /> */}
+          <Route path="/articles/:article_id" element={<PostAComment />} />
         </Routes>
       </div>
     </BrowserRouter>
