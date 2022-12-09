@@ -1,11 +1,18 @@
-const DisplayAllComments = ({ comment }) => {
+const DisplayAllComments = ({ comments }) => {
   return (
-    <li>
-      <h2>Username: {comment.author}</h2>
-      <p>Comment: {comment.body}</p>
-      <p>Comment created at: {comment.created_at}</p>
-      <h2>Votes: {comment.votes}</h2>
-    </li>
+    <>
+      {comments.map((comment) => {
+        const { author, body, created_at, votes } = comment;
+        return (
+          <div key={created_at}>
+            <h4>{author}</h4>
+            <p>{body}</p>
+            <p>{created_at}</p>
+            <p>{votes}</p>
+          </div>
+        );
+      })}
+    </>
   );
 };
 
